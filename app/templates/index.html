@@ -1,55 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{title}}</title>
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
-  
-</head>
-<body>
-  <header>
-    <h1> Meu Portfólio </h1>
-  </header>
+{% extends 'base.html' %}
 
-  <!-- Menu de navegação -->
-  <nav>
-    <ul>
-      <li><a href="/">Início</a></li>
-      <li><a href="/sobre">Sobre</a></li>
-      <li><a href="/projeto">Projetos</a></li>
-      <li><a href="/contato">Contato</a></li>
-    </ul>
-  </nav>
+{%  block conteudo %}
+<section id="inicio">
+  <h2>Inicio</h2>
+  <p>Trabalhei em diversas empresas, adquirindo experiência em:</p>
+  <ul>
+    <li>Desenvolvimento web front-end</li>
+    <li>Desenvolvimento de aplicações móveis</li>
+    <li>Gestão de projetos</li>
+  </ul>
+</section>
+{%  endblock %}
 
-  <!-- Conteúdo do portfólio -->
-  <main>
-    <section id="sobre">
-      <h2>Sobre Mim</h2>
-      <p>Olá! Sou um desenvolvedor web apaixonado por tecnologia. Tenho experiência em diversas tecnologias da web, incluindo HTML, CSS, JavaScript, React e Node.js.</p>
-      <p>Estou sempre em busca de novos desafios e oportunidades para expandir meus conhecimentos e habilidades.</p>
-    </section>
-
-    <section id="projetos">
-      <h2>Projetos</h2>
-      <p>Aqui estão alguns dos meus projetos mais recentes:</p>
-      <ul>
-        <li><strong>Projeto 1:</strong> Descrição breve do projeto 1.</li>
-        <li><strong>Projeto 2:</strong> Descrição breve do projeto 2.</li>
-        <li><strong>Projeto 3:</strong> Descrição breve do projeto 3.</li>
-      </ul>
-    </section>
-
-    <section id="contato">
-      <h2>Contato</h2>
-      <p>Se quiser entrar em contato comigo, pode enviar um e-mail para: contato@meuportfol.io</p>
-      <p>Também estou disponível no LinkedIn: <a href="https://www.linkedin.com/in/seu-nome/" target="_blank">linkedin.com/in/seu-nome/</a></p>
-    </section>
-  </main>
-
-  <!-- Rodapé -->
-  <footer>
-    <p>© 2023 Meu Portfólio. Todos os direitos reservados.</p>
-  </footer>
-</body>
-</html>

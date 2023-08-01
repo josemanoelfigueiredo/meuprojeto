@@ -1,42 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> {{title}} </title>
-</head>
-<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6;">
+{% extends 'base.html' %}
 
-  <!-- Cabeçalho -->
-  <header style="background-color: #1a1a1a; color: #fff; padding: 20px; text-align: center;">
-    <h1>Meu Portfólio</h1>
-  </header>
 
-  <!-- Menu de navegação -->
-  <nav style="background-color: #333; padding: 10px; text-align: center;">
-    <ul style="list-style: none; padding: 0;">
-      <li style="display: inline-block; margin: 0 10px;"><a href="/" style="color: #fff; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Início</a></li>
-      <li style="display: inline-block; margin: 0 10px;"><a href="/sobre" style="color: #fff; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Sobre</a></li>
-      <li style="display: inline-block; margin: 0 10px;"><a href="/projeto" style="color: #fff; text-decoration: none; padding: 5px 10px; border-radius: 5px; background-color: #444;">Projetos</a></li>
-      <li style="display: inline-block; margin: 0 10px;"><a href="/contato" style="color: #fff; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Contato</a></li>
-    </ul>
-  </nav>
+{%  block conteudo %}
+<section id="projeto">
+  <h2>Projetos</h2>
+  <p>Aqui estão alguns dos meus projetos mais recentes:</p>
+  <ul>
+    <li><strong>Projeto 1:</strong> Descrição breve do projeto 1.</li>
+    <li><strong>Projeto 2:</strong> Descrição breve do projeto 2.</li>
+    <li><strong>Projeto 3:</strong> Descrição breve do projeto 3.</li>
+  </ul>
+</section>
+{%  endblock %}
 
-  <!-- Conteúdo da página Projetos -->
-  <main style="padding: 20px;">
-    <section style="margin-bottom: 20px; padding: 20px; background-color: #f0f0f0; border-radius: 5px;">
-      <h2 style="color: #3498db;">Meus Projetos</h2>
-      <ul>
-        <li><strong>Projeto 1:</strong> Descrição breve do projeto 1.</li>
-        <li><strong>Projeto 2:</strong> Descrição breve do projeto 2.</li>
-        <li><strong>Projeto 3:</strong> Descrição breve do projeto 3.</li>
-      </ul>
-    </section>
-  </main>
-
-  <!-- Rodapé -->
-  <footer style="background-color: #222; color: #fff; text-align: center; padding: 10px;">
-    <p>© 2023 Meu Portfólio. Todos os direitos reservados.</p>
-  </footer>
-</body>
-</html>
