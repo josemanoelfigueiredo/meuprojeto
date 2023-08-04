@@ -1,27 +1,52 @@
 {% extends 'base.html' %}
 
 {%  block conteudo %}
+
+{% with mensagens = get_flashed_messages() %}
+      {% if mensagens %}
+        {% for mensagem in mensagens %}
+          <h3> {{ mensagem }} </h3> 
+        {% endfor %} 
+      {% endif %}
+{% endwith %}
+
+{% if dados_formulario %}
+    <p>Dados do formulario: </p>
+    <p>Nome: {{ dados_formulario.nome }} </p>
+    <p>Telefone: {{ dados_formulario.telefone }}</p>
+    <p>Email: {{ dados_formulario.email }} </p>
+    <p>Conteudo: {{ dados_formulario.conteudo }}</p>
+{% endif %}
+
 <h1>Entre em Contato</h1>
-    <form action="/enviar-contato" method="post">
+    <form action="" method="post">
+        {{formulario.csrf_token}}
+
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+        {{formulario.nome}}
+
         <br>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        {{formulario.email}}
         <br>
 
         <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="telefone" required>
+        {{formulario.telefone}}
         <br>
 
         <label for="conteudo">Conteúdo:</label>
-        <textarea id="conteudo" name="conteudo" rows="4" required></textarea>
+        {{formulario.conteudo}}
         <br>
 
-        <input type="submit" value="Enviar">
+        {{formulario.enviar}}
+
     </form>
-</section>
-<section id="contato">
-  {%  endblock %}
+
+
+{%  endblock %}
+    
+
+    
+  
 

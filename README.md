@@ -13,7 +13,7 @@ Além disso, o Flask integra-se de forma perfeita com o mecanismo de templates J
 Em suma, Flask é a escolha ideal para iniciantes que desejam dar os primeiros passos na construção de aplicações web em Python, sem abrir mão da flexibilidade e da facilidade de uso. Com Flask, você poderá criar aplicações web incríveis e começar sua jornada no desenvolvimento web de forma empolgante!
 ## Instalação e Criação de um ambiente virtual
 
-#### Crie uma pasta de projeto:
+#### 1° passo: Crie uma pasta de projeto:
 
 ```bash
 mkdir myproject
@@ -21,17 +21,32 @@ cd myproject
 py -3 -m venv venv
 ```
 
-#### Faça a ativação da sua maquina virtual:
+#### 2° passo: Faça a ativação da sua maquina virtual:
 
 ```bash
 venv\Scripts\activate
 ```
 
-#### Instale o Flask
+#### 3° passo: Instale o Flask
 
 ```bash
 pip install Flask
 ```
+
+#### 4° passo: Para instalar as dependências desse projeto, use o comando abaixo.
+
+```bash
+pip install -r requirements.txt
+```
+
+#### 5° passo: se Você aprimorou o projeto, contribua adcionando as depêndencias que utilizou com o comando abaixo:
+
+```bash
+pip freeze > requirements.txt
+```
+
+
+
 
 
 ## Autores

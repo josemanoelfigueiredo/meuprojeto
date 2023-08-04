@@ -56,6 +56,17 @@
       color: #3498db;
     }
 
+    h3 {
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #4caf50;
+      text-align: center;
+      color: #eee9e9;
+      border-radius: 5px;
+      max-width: 300px;
+      margin: 20px auto;
+    }
+
     footer {
       background-color: #222;
       color: #fff;
@@ -104,7 +115,7 @@ textarea {
 
 /* Estilos para o botão de envio */
 input[type="submit"] {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: #fff;
   padding: 10px 20px;
   border: none;
