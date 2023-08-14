@@ -21,7 +21,7 @@ def projeto():
 def contato():
     dados_formulario = None
     formulario = Contato()
-    if formulario.validate_on_submit:
+    if formulario.validate_on_submit():
         flash('Seu forms foi enviado com sucesso!')
         nome = formulario.nome.data
         telefone = formulario.telefone.data
