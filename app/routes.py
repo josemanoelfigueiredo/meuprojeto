@@ -17,6 +17,9 @@ def sobre():
 def projeto():
     return render_template('projetos.html', title = 'Projetos')
 
+@app.route('/teste')
+def teste():
+    return render_template('teste.html', title = 'Testes')
 @app.route('/contato', methods=['GET','POST'])
 def contato():
     dados_formulario = None

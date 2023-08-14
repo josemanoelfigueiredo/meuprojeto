@@ -3,33 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> {{title}} </title>
-  <link rel ="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
-
+  <title>{{ title }}</title>
+  
+  <!-- Adicione os links para os arquivos CSS do Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+  
+  <!-- Seu arquivo de estilo personalizado -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <header>
     <h1>Meu Portfólio</h1>
   </header>
 
-  <!-- Menu de navegação -->
-  <nav>
-    <ul>
-      <li><a href="/sobre">Sobre</a></li>
-      <li><a href="/projeto">Projetos</a></li>
-      <li><a href="/">Inicio</a></li>
-      <li><a href="/contato">Contato</a></li>
-    </ul>
+  <!-- Menu de navegação usando classes do Bootstrap -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="/sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projeto">Projetos</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
+      </ul>
+    </div>
   </nav>
 
-  {%  block conteudo %}
+  {% block conteudo %}
 
+  {% endblock %}
 
-  {%  endblock %}
-
-  <!-- Rodapé -->
-  <footer>
-    <p>© 2023 Meu Portfólio. Todos os direitos reservados.</p>
+  <!-- Rodapé usando classes do Bootstrap -->
+  <footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+      <p>© 2023 Meu Portfólio. Todos os direitos reservados.</p>
+    </div>
   </footer>
+
+  <!-- Adicione o link para o arquivo JavaScript do Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

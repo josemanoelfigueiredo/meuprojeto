@@ -18,33 +18,37 @@
     <p>Conteudo: {{ dados_formulario.conteudo }}</p>
 {% endif %}
 
-<h1>Entre em Contato</h1>
-    <form action="" method="post">
-        {{formulario.csrf_token}}
 
-        <label for="nome">Nome:</label>
-        {{formulario.nome}}
+<section id="contato" class="container mt-5">
+  <h2>Entre em Contato</h2>
+  <form action="" method="post">
+    {{ formulario.csrf_token }}
 
-        <br>
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome:</label>
+      {{ formulario.nome }}
+    </div>
 
-        <label for="email">Email:</label>
-        {{formulario.email}}
-        <br>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      {{ formulario.email }}
+    </div>
 
-        <label for="telefone">Telefone:</label>
-        {{formulario.telefone}}
-        <br>
+    <div class="mb-3">
+      <label for="telefone" class="form-label">Telefone:</label>
+      {{ formulario.telefone }}
+    </div>
 
-        <label for="conteudo">Conteúdo:</label>
-        {{formulario.conteudo}}
-        <br>
+    <div class="mb-3">
+      <label for="conteudo" class="form-label">Conteúdo:</label>
+      {{ formulario.conteudo }}
+    </div>
 
-        {{formulario.enviar}}
+    {{ formulario.enviar }}
+  </form>
+</section>
+{% endblock %}
 
-    </form>
-
-
-{%  endblock %}
     
 
     
