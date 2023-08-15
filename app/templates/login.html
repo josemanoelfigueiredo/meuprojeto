@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{%  block conteudo %}
+
+<div class="container login-container">
+    <div class="card login-card">
+      <div class="card-header login-card-header">
+        <h4>Página de Login</h4>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="senha" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="senha" name="senha" required>
+          </div>
+          <button type="submit" class="btn btn-sucess">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -5,19 +5,12 @@
 {% with mensagens = get_flashed_messages() %}
       {% if mensagens %}
         {% for mensagem in mensagens %}
-          <h3> {{ mensagem }} </h3> 
+        <div class="alert alert-sucess" role="alert">
+          {{ mensagem }}
+        </div>  
         {% endfor %} 
       {% endif %}
 {% endwith %}
-
-{% if dados_formulario %}
-    <p>Dados do formulario: </p>
-    <p>Nome: {{ dados_formulario.nome }} </p>
-    <p>Telefone: {{ dados_formulario.telefone }}</p>
-    <p>Email: {{ dados_formulario.email }} </p>
-    <p>Conteudo: {{ dados_formulario.conteudo }}</p>
-{% endif %}
-
 
 <section id="contato" class="container mt-5">
   <h2>Entre em Contato</h2>
@@ -26,25 +19,25 @@
 
     <div class="mb-3">
       <label for="nome" class="form-label">Nome:</label>
-      {{ formulario.nome }}
+      {{ formulario.nome(class="form-control", placeholder="Digite aqui seu nome: " ) }}
     </div>
 
     <div class="mb-3">
       <label for="email" class="form-label">Email:</label>
-      {{ formulario.email }}
+      {{ formulario.email(class="form-control", placeholder="Digite aqui seu email: ") }}
     </div>
 
     <div class="mb-3">
       <label for="telefone" class="form-label">Telefone:</label>
-      {{ formulario.telefone }}
+      {{ formulario.telefone(class="form-control", placeholder= "Digite aqui seu telefone: ")}}
     </div>
 
     <div class="mb-3">
       <label for="conteudo" class="form-label">Conteúdo:</label>
-      {{ formulario.conteudo }}
+      {{ formulario.conteudo(class="form-control", rows = "3", placeholder= "Digite aqui seu texto: ") }}
     </div>
 
-    {{ formulario.enviar }}
+    {{ formulario.enviar(class="btn btn-success")}}
   </form>
 </section>
 {% endblock %}
