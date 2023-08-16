@@ -1,7 +1,8 @@
 from app import app,db
-from flask import render_template, url_for, flash, redirect, request
+from flask import render_template, url_for, flash, redirect, request, session
 from app.forms import Contato,Cadastro
 from app.models import ContatoModels, CadastroModels
+import time
 
 @app.route('/')
 def index():
@@ -25,20 +26,37 @@ def cadastro():
     
     cadastro = Cadastro()
     if cadastro.validate_on_submit():
-        flash('Cadastro concluido!')
-        nome = cadastro.nome.data
-        email = cadastro.email.data
-        telefone = cadastro.telefone.data
-        senha = cadastro.senha.data
+        try:
+        
+            nome = cadastro.nome.data
+            email = cadastro.email.data
+            telefone = cadastro.telefone.data
+            senha = cadastro.senha.data
 
-        novo_cadastro = CadastroModels(nome = nome, email = email, telefone = telefone, senha = senha)
-        db.session.add(novo_cadastro)
-        db.session.commit()
-
+            novo_cadastro = CadastroModels(nome = nome, email = email, telefone = telefone, senha = senha)
+            db.session.add(novo_cadastro)
+            db.session.commit()
+            flash('Seu Cadastro foi realizado com sucesso!')
+        except Exception as e:
+            flash('Ocorreu um erro ao cadastrar!')
+            print(str(e))
     return render_template('cadastro.html', title = 'Cadastre-se', cadastro = cadastro)
 
-@app.route('/login')
+@app.route('/login', methods = ['GET' , 'POST'])
 def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        user = CadastroModels.query.filter_by(email = email, senha = senha).first()
+        if user and user.senha == senha:
+            session['email'] = user.id
+            
+            flash('Seja Bem vindo!')
+            time.sleep(2)
+            
+            return redirect(url_for('index'))
+        else:
+            flash('Senha ou email incorreto')
     return render_template('login.html', title = 'Login')
 
 

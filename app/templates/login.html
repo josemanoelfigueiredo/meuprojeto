@@ -2,13 +2,25 @@
 
 {%  block conteudo %}
 
+{% with mensagens = get_flashed_messages() %}
+      {% if mensagens %}
+        {% for mensagem in mensagens %}
+        <div class="alert alert-sucess" role="alert">
+          {{ mensagem }}
+        </div>  
+        {% endfor %} 
+      {% endif %}
+{% endwith %}
+
+
+
 <div class="container login-container">
     <div class="card login-card">
       <div class="card-header login-card-header">
         <h4>Página de Login</h4>
       </div>
       <div class="card-body">
-        <form>
+        <form action="{{ url_for('login') }}" method="post">
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" name="email" required>

@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
+
+{% with mensagens = get_flashed_messages() %}
+      {% if mensagens %}
+        {% for mensagem in mensagens %}
+        <div class="alert alert-sucess" role="alert">
+          {{ mensagem }}
+        </div>  
+        {% endfor %} 
+      {% endif %}
+{% endwith %}
+
 <section id="inicio" class="container mt-5">
   <h2>Inicio</h2>
   <p>Trabalhei em diversas empresas, adquirindo experiência em:</p>
