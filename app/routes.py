@@ -1,7 +1,8 @@
-from app import app,db
+from app import app,db, bcrypt
 from flask import render_template, url_for, flash, redirect, request, session
 from app.forms import Contato,Cadastro
 from app.models import ContatoModels, CadastroModels
+from flask_bcrypt import check_password_hash
 import time
 
 @app.route('/')
@@ -32,8 +33,8 @@ def cadastro():
             email = cadastro.email.data
             telefone = cadastro.telefone.data
             senha = cadastro.senha.data
-
-            novo_cadastro = CadastroModels(nome = nome, email = email, telefone = telefone, senha = senha)
+            hash_senha = bcrypt.generate_password_hash(senha).decode('utf-8')
+            novo_cadastro = CadastroModels(nome = nome, email = email, telefone = telefone, senha = hash_senha)
             db.session.add(novo_cadastro)
             db.session.commit()
             flash('Seu Cadastro foi realizado com sucesso!')
@@ -47,11 +48,13 @@ def login():
     if request.method == 'POST':
         email = request.form.get('email')
         senha = request.form.get('senha')
-        user = CadastroModels.query.filter_by(email = email, senha = senha).first()
-        if user and user.senha == senha:
-            session['email'] = user.id
+        user = CadastroModels.query.filter_by(email = email).first()
+        if user and check_password_hash(user.senha, senha):
             
+            session['email'] = user.email
+            session['nome'] = user.nome
             flash('Seja Bem vindo!')
+            print( 'Deu certo')
             time.sleep(2)
             
             return redirect(url_for('index'))
@@ -59,6 +62,11 @@ def login():
             flash('Senha ou email incorreto')
     return render_template('login.html', title = 'Login')
 
+@app.route('/sair')
+def sair():
+    session.pop('email', None)
+    session.pop('nome', None)
+    return redirect(url_for('login'))
 
 @app.route('/contato', methods=['GET','POST'])
 def contato():
