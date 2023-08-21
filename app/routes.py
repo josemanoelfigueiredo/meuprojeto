@@ -53,6 +53,8 @@ def login():
             
             session['email'] = user.email
             session['nome'] = user.nome
+            session['senha'] = user.senha
+            session['telefone'] = user.telefone
             flash('Seja Bem vindo!')
             print( 'Deu certo')
             time.sleep(2)
@@ -66,6 +68,8 @@ def login():
 def sair():
     session.pop('email', None)
     session.pop('nome', None)
+    session.pop('telefone', None)
+    session.pop('senha', None)
     return redirect(url_for('login'))
 
 @app.route('/contato', methods=['GET','POST'])
@@ -84,3 +88,23 @@ def contato():
 
     return render_template('contato.html', title = 'Contato',formulario = formulario, dados_formulario = dados_formulario)  
 
+@app.route('/editar', methods=['GET','POST'])
+def editar():
+    if 'email' not in session:
+        return redirect(url_for('login'))
+    user = CadastroModels.query.filter_by(email = session['email']).first()
+    if request.method == 'POST':
+        user.nome = request.form.get('nome')
+        user.email =request.form.get('email')
+        user.telefone = request.form.get('telefone')
+        senha = request.form.get('senha')
+        user.email = request.form.get('email')
+        user.senha = bcrypt.generate_password_hash(senha).decode('utf-8')
+        db.session.commit()
+        session['email'] = user.email
+        session['nome'] = user.nome
+        session['senha'] = user.senha
+        session['telefone'] = user.telefone
+        flash('Seus dados foram alterados com sucesso!')
+
+    return render_template('editar.html', title='Editar', user = user)

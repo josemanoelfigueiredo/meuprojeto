@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+{% with mensagens = get_flashed_messages() %}
+  {% if mensagens %}
+    {% for mensagem in mensagens %}
+      <div class="alert alert-success" role="alert">
+        {{ mensagem }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<section id="editar" class="container mt-5">
+  <h1>Editar Usuário</h1>
+  <form method='POST'>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="email"  value= "{{session['email']}}" >
+    </div>
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" name="nome" class="form-control" value="{{session['nome']}}">
+    </div>
+    <div class="mb-3">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input type="tel" name="telefone" class="form-control" value="{{session['telefone']}}">
+    </div>
+    <div class="mb-3">
+      <label for="senha" class="form-label">Nova Senha (Deixe em branco para manter a mesma senha)</label>
+      <input type="password" name="senha" class="form-control" value="{{session['senha']}}">
+    </div>
+    <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    </div>
+  </form>
+</section>
+
+{% endblock %}
