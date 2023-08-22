@@ -16,5 +16,10 @@ class Cadastro(FlaskForm):
     email = EmailField('email', validators=[DataRequired()])
     senha = PasswordField('senha', validators=[DataRequired()])
     telefone = TelField('telefone', validators=[DataRequired()])
+    rua = StringField('rua', validators=[DataRequired()])
+    bairro = StringField('bairro', validators=[DataRequired()])
+    cidade = StringField('cidade', validators=[DataRequired()])
+    uf = StringField('uf', validators=[DataRequired()])
+    cpf = StringField('cpf', validators=[DataRequired()])
     enviar = SubmitField('Enviar')
 

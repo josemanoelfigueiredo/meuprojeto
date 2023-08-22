@@ -17,7 +17,7 @@
   <form method='POST'>
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" name="email"  value= "{{session['email']}}" >
+      <input type="email" class="form-control" id="email" name="email"  value="{{session['email']}}">
     </div>
     <div class="mb-3">
       <label for="nome" class="form-label">Nome</label>
@@ -29,12 +29,33 @@
     </div>
     <div class="mb-3">
       <label for="senha" class="form-label">Nova Senha (Deixe em branco para manter a mesma senha)</label>
-      <input type="password" name="senha" class="form-control" value="{{session['senha']}}">
+      <input type="password" name="senha" class="form-control">
     </div>
     <div class="mb-3">
-    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+      <label for="rua" class="form-label">Rua</label>
+      <input type="text" name="rua" class="form-control" value="{{session['rua']}}">
+    </div>
+    <div class="mb-3">
+      <label for="bairro" class="form-label">Bairro</label>
+      <input type="text" name="bairro" class="form-control" value="{{session['bairro']}}">
+    </div>
+    <div class="mb-3">
+      <label for="cidade" class="form-label">Cidade</label>
+      <input type="text" name="cidade" class="form-control" value="{{session['cidade']}}">
+    </div>
+    <div class="mb-3">
+      <label for="uf" class="form-label">UF</label>
+      <input type="text" name="uf" class="form-control" value="{{session['uf']}}">
+    </div>
+    <div class="mb-3">
+      <label for="cpf" class="form-label">CPF</label>
+      <input type="text" name="cpf" class="form-control">
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Salvar Alterações</button>
     </div>
   </form>
 </section>
+
 
 {% endblock %}

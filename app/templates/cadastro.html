@@ -12,30 +12,54 @@
       {% endif %}
 {% endwith %}
 
-<section id="cadastro" class="container mt-5"></section>
-<div class="container mt-5">
+<section id="cadastro" class="container mt-5">
+  <div class="container mt-5">
     <h1>Cadastre-se</h1>
     <form method="post">
-        {{cadastro.csrf_token}}
+      {{cadastro.csrf_token}}
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        {{cadastro.email(class="form-control", placeholder="Digite aqui seu email: ")}}
+        {{cadastro.email(class="form-control", placeholder="Digite aqui seu email:")}}
       </div>
       <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
-        {{cadastro.nome(class="form-control", placeholder="Digite aqui seu nome: " )}}
+        {{cadastro.nome(class="form-control", placeholder="Digite aqui seu nome:")}}
       </div>
       <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
-        {{cadastro.senha(class="form-control", placeholder="Digite aqui sua senha: " )}}
+        {{cadastro.senha(class="form-control", placeholder="Digite aqui sua senha:")}}
       </div>
       <div class="mb-3">
         <label for="telefone" class="form-label">Telefone</label>
-        {{cadastro.telefone(class="form-control", placeholder="Digite aqui seu telefone: " )}}
+        {{cadastro.telefone(class="form-control", placeholder="Digite aqui seu telefone:")}}
       </div>
-      <button type="enviar" class="btn btn-success">Enviar</button>
+      <div class="mb-3">
+        <label for="rua" class="form-label">Rua</label>
+        {{cadastro.rua(class="form-control", placeholder="Digite aqui sua rua:")}}
+      </div>
+      <div class="mb-3">
+        <label for="bairro" class="form-label">Bairro</label>
+        {{cadastro.bairro(class="form-control", placeholder="Digite aqui seu bairro:")}}
+      </div>
+      <div class="mb-3">
+        <label for="cidade" class="form-label">Cidade</label>
+        {{cadastro.cidade(class="form-control", placeholder="Digite aqui sua cidade:")}}
+      </div>
+      <div class="mb-3">
+        <label for="uf" class="form-label">UF</label>
+        {{cadastro.uf(class="form-control", placeholder="Digite aqui sua UF:")}}
+      </div>
+      <div class="mb-3">
+        <label for="cpf" class="form-label">CPF</label>
+        {{cadastro.cpf(class="form-control", placeholder="Digite aqui seu cpf:")}}
+      </div>
+      <div class="mb-3">
+        <button type="enviar" class="btn btn-success">Enviar</button>
+      </div>
+      
     </form>
   </div>
-</section>  
+</section>
+
 
 {% endblock %}
