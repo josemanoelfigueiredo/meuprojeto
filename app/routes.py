@@ -17,6 +17,7 @@ def sobre():
 def projeto():
     return render_template('projetos.html', title = 'Projetos')
 
+
 @app.route('/teste')
 def teste():
     return render_template('teste.html', title = 'Testes')
@@ -146,3 +147,28 @@ def excluir_conta():
 
     flash('Sua conta foi excluida!')
     return redirect(url_for('cadastro'))
+
+
+@app.route('/aula1')
+def aula1():
+    return render_template('aula1.html')
+
+@app.route('/aula2')
+def aula2():
+    return render_template('aula2.html')
+
+@app.route('/aula3')
+def aula3():
+    return render_template('aula3.html')
+
+@app.route('/aula4')
+def aula4():
+    return render_template('aula4.html')
+
+@app.route('/aula5')
+def aula5():
+    return render_template('aula5.html')
+
+@app.route('/aula6')
+def aula6():
+    return render_template('aula6.html')

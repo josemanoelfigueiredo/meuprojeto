@@ -1,15 +1,111 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-<section id="projeto" class="container mt-5">
-  <h2>Projetos</h2>
-  <p>Aqui estão alguns dos meus projetos mais recentes:</p>
-  <ul>
-    <li><strong>Projeto 1:</strong> Descrição breve do projeto 1.</li>
-    <li><strong>Projeto 2:</strong> Descrição breve do projeto 2.</li>
-    <li><strong>Projeto 3:</strong> Descrição breve do projeto 3.</li>
-  </ul>
-</section>
+<main class="mt-4 d-flex justify-content-center align-items-center">
+  <div class="card text-center p-4">
+      <h1 class="card-text">Principais topicos abordados no curso: </h1>
+  </div>
+</main>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+      <div class="col-md-4">
+          <div class="card mb-4">
+              <div class="card-body">
+                  <h5 class="card-title">Aula 1 - Introdução ao Flask</h5>
+                  <p class="card-text">Na primeira aula, comecei a explorar o desenvolvimento web com Flask, instalando o framework e aprendendo sobre rotas e princípios básicos. Foi um começo empolgante!</p>
+                  <a href="
+                  {% if session['email'] %}
+                  {{url_for('aula1')}}
+                  {% else %}
+                  {{url_for('login')}}
+                  {% endif %}
+                  " class="card-link">Leia mais</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mb-4">
+              <div class="card-body">
+                  <h5 class="card-title">Aula 2 - Rotas em Flask</h5>
+                  <p class="card-text">Na segunda aula, explorei rotas em Flask, aprendendo a definir rotas, passar informações por URLs e técnicas avançadas. Foi uma empolgante experiência de aprendizado.</p>
+                  <a href="
+                  {% if session['email'] %}
+                  {{url_for('aula2')}}
+                  {% else %}
+                  {{url_for('login')}}
+                  {% endif %}
+                  " class="card-link">Leia mais</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mb-4">
+              <div class="card-body">
+                  <h5 class="card-title">Aula 3 - Templates em Flask</h5>
+                  <p class="card-text">Na terceira aula, explorei formulários em Flask, aprendendo a criar e validar campos de entrada. Descobri como tornar formulários interativos e essenciais para aplicativos web. Foi uma experiência enriquecedora que estou ansioso para compartilhar."
+            
+                    </p>
+                  <a href="
+                  {% if session['email'] %}
+                  {{url_for('aula3')}}
+                  {% else %}
+                  {{url_for('login')}}
+                  {% endif %}
+                  " class="card-link">Leia mais</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mb-4">
+              <div class="card-body">
+                  <h5 class="card-title">Aula 4 - Banco de Dados com Flask</h5>
+                  <p class="card-text">Na quarta aula, exploramos bancos de dados em Flask, usando o SQLAlchemy. Aprendemos a criar modelos, fazer consultas e gerenciar registros. Esses conhecimentos são essenciais para aplicativos dinâmicos e estou entusiasmado para compartilhá-los.
+
+                  </p>
+                  <a href="
+                  {% if session['email'] %}
+                  {{url_for('aula4')}}
+                  {% else %}
+                  {{url_for('login')}}
+                  {% endif %}    
+                  " class="card-link">Leia mais</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mb-4">
+              <div class="card-body">
+                  <h5 class="card-title">Aula 5 - Funcionalidades em Flask</h5>
+                  <p class="card-text">Na quinta aula, abordamos funcionalidades adicionais em nosso site Flask, como autenticação de usuários, login, registro e uso de sessões. Destacamos a importância da segurança na gestão de informações de login e como personalizar a experiência do usuário com base no status de login.
+
+                  </p>
+                  <a href="
+                  {% if session['email'] %}
+                  {{url_for('aula5')}}
+                  {% else %}
+                  {{url_for('login')}}
+                  {% endif %}
+                  " class="card-link">Leia mais</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mb-4">
+              <div class="card-body">
+                  <h5 class="card-title">Aula 6 - Implementação do CRUD em Flask</h5>
+                  <p class="card-text">Na última aula, avançamos na implementação de um CRUD em nosso aplicativo Flask, concluindo as funcionalidades de criação e atualização de registros e nos aproximando da finalização da leitura de registros. Foi um passo importante para a conclusão de nosso aplicativo.</p>
+                  <a href="
+                  {% if session['email'] %}
+                  {{url_for('aula6')}}
+                  {% else %}
+                  {{url_for('login')}}
+                  {% endif %}
+                  " class="card-link">Leia mais</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 {% endblock %}
 
 
