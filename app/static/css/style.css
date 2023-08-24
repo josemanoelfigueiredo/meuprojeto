@@ -78,10 +78,16 @@
     }
   
 
-
-
-
-
+    .my-6 {
+      margin-top: 6rem !important;
+      margin-bottom: 6rem !important;
+  }
+  /* Estilo para preencher 100% da tela */
+  .fill-screen {
+      min-height: 100vh;
+      background-color: #f0f0f0; /* Altere a cor de fundo conforme desejar */
+      padding: 30px; /* Espaçamento interno */
+  }
 
 
 
